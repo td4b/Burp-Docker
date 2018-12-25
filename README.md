@@ -30,7 +30,11 @@ IP=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
 ```bash
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
-3) Launch Docker Container.
+3) Confirm port is listening.
+```bash
+lsof -nP -i4TCP:6000 | grep LISTEN
+```
+4) Launch Docker Container.
 ```bash
 docker run -tdi -v /tmp/.X11-unix/:/tmp/.X11-unix -e DISPLAY=$IP:0 -p 8080:8080 tdub17/burpdocker
 ```
