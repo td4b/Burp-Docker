@@ -9,7 +9,7 @@ This is intended to act as a lighweight pentesting toolset. This is super barebo
 **Install (Pull Docker Image)**
 1) Pull the Image.
 ```bash
-docker pull tdub17/pentools:latest
+docker pull tdub17/burpdocker:latest
 ```
 2) Install the Dependencies (socat & xquartz)
 ```
@@ -22,7 +22,7 @@ brew cask install xquartz
 
 **Usage (Guide)**
 
-1)) Get Local IP.
+1)) Get Local IP.pentools
 ```bash
 IP=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
 ```
@@ -32,7 +32,7 @@ socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 3) Launch Docker Container.
 ```bash
-docker run -tdi -v /tmp/.X11-unix/:/tmp/.X11-unix -e DISPLAY=$IP:0 -p 8080:8080 tdub17/pentools
+docker run -tdi -v /tmp/.X11-unix/:/tmp/.X11-unix -e DISPLAY=$IP:0 -p 8080:8080 tdub17/burpdocker
 ```
 
 That's it, enjoy :)
