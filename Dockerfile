@@ -15,12 +15,7 @@ ENV JAVA_VERSION_MAJOR=8 \
 RUN apt update && apt-get install -y software-properties-common curl && apt-get clean all
 
 
-RUN curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
-    chmod 755 msfinstall && \
-    ./msfinstall && \
-    
-    # Add Java Repo & Install
-    add-apt-repository ppa:webupd8team/java -y && \
+RUN add-apt-repository ppa:webupd8team/java -y && \
 
     # make installation not to ask
     echo debconf shared/accepted-oracle-license-v1-1 select true |  debconf-set-selections && \
