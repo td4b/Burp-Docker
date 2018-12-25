@@ -25,6 +25,7 @@ brew cask install xquartz
 1)) Get Local IP.pentools
 ```bash
 IP=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
+export IP
 ```
 2) Enable Local Port Forwarding, run & minimize this Socket.
 ```bash
