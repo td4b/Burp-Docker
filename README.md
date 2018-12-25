@@ -21,19 +21,18 @@ brew cask install xquartz
 ```
 
 **Usage (Guide)**
-
-1)) Get Local IP.pentools
-```bash
-IP=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
-export IP
-```
-2) Enable Local Port Forwarding, run & minimize this Socket.
+1) Enable Local Port Forwarding, run & minimize this CLI Window.
 ```bash
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
-3) Confirm port is listening.
+2) Confirm port is listening.
 ```bash
 lsof -nP -i4TCP:6000 | grep LISTEN
+```
+3) Get Local IP and add to local Variable.
+```bash
+IP=$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')
+export IP
 ```
 4) Launch Docker Container.
 ```bash
