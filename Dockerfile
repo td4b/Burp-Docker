@@ -47,7 +47,7 @@ RUN add-apt-repository ppa:webupd8team/java -y && \
 #Get Burp
 RUN mkdir burp
 WORKDIR /burp
-RUN wget -q -O burpsuite.jar https://portswigger.net/burp/releases/download?product=community\&version=1.7.27\&type=jar
+RUN wget -q -O burpsuite.jar https://portswigger.net/burp/releases/download?product=community\&version=1.7.36\&type=jar
 
 RUN mkdir -p /root/.java/.userPrefs/burp/
 
